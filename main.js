@@ -12,9 +12,34 @@ const rl = readline.createInterface({
 
 
 const pigLatin = (word) => {
-
+  let output;
   // Your code here
-
+  let input = word.toLowerCase().trim();
+  let toSlice;
+  let slicedWords = [];
+  if (input[0] === 'a' || input[0] === 'e' || input[0] === 'i' || input[0] === 'o' || input[0] === 'u') {
+    output = input + 'yay';
+  }
+  else if (input[0] != 'a' || input[0] != 'e' || input[0] != 'i' || input[0] != 'o' || input[0] != 'u') {
+    toSlice = 0;
+    while (input[toSlice] != 'a' || input[toSlice] != 'e' || input[toSlice] != 'i' || input[toSlice] != 'o' || input[toSlice] != 'u') {
+      slicedWords.push(input[toSlice])
+      toSlice += 1;
+      
+      if (input[toSlice] === 'a' || input[toSlice] === 'e' || input[toSlice] === 'i' || input[toSlice] === 'o' || input[toSlice] === 'u') {
+        break;
+      }
+    }
+    let pop = input.slice(toSlice);
+    let finalSlice = slicedWords.join("");
+    output = pop + finalSlice + 'ay';
+    console.log(toSlice);
+    console.log(pop);
+    console.log(input);
+    console.log(slicedWords);
+  } 
+  
+  return output;
 }
 
 // the first function called in the program to get an input from the user
